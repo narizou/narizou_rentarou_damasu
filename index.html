@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <style>
+      input {
+        margin: 10px;
+        padding: 10px;
+        font-size: 18px;
+        border: 1px solid black;
+        border-radius: 10px;
+      }
+      button {
+        margin: 10px;
+        padding: 10px;
+        font-size: 18px;
+        border: 1px solid black;
+        border-radius: 10px;
+        background-color: lightblue;
+      }
+      #result {
+        margin: 10px;
+        padding: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid black;
+        padding: 10px;
+        background-color: orange;
+      }
+      h1 {
+        text-align: center;
+        font-size: 36px;
+        font-weight: bold;
+        color: lightblue;
+      }
+      .dictionary-container {
+        border: 1px solid black;
+        padding: 10px;
+        margin: 20px auto;
+        width: 50%;
+        text-align: center;
+      }
+    </style>
+    <script>
+      function findWords() {
+        var first = document.getElementById("first").value;
+        var last = document.getElementById("last").value;
+        var dictionary = {
+          "すいか": "すいか",
+          "ばなな": "バナナ",
+          "みかん": "みかん",
+          "りす": "リス",
+          "りんご": "りんご"
+        };
+        var result = "";
+        for (var word in dictionary) {
+          if (word.startsWith(first) && word.endsWith(last)) {
+            result += "<p style='color: white; font-size: 24px;'>" + dictionary[word] + "</p>";
+          }
+        }
+        if (result === "") {
+          result = "<p style='color: red; font-size: 24px;'>No match found</p>";
+        }
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="dictionary-container">
+      <h1>narizouのしりとり辞書</h1>
+      <input id="first" type="text" size="1">最初の文字<br>
+      <input id="last" type="text" size="1">最後の文字<br>
+      <button onclick="findWords()">検索(ひらがなで入力してね)</button>
+      <div id="result"></div>
+    </div>
+  </body>
+</html>
