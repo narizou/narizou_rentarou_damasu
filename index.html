@@ -1,64 +1,66 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <style>
-    .dot {
-      height: 50px;
-      width: 50px;
-      background-color: black;
-      display: inline-block;
-      border: 1px solid black;
-      cursor: pointer;
-    }
-    
-    .palette {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    
-    .color {
-      height: 30px;
-      width: 30px;
-      border: 1px solid black;
-      margin: 0 10px;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <div class="dot" onclick="selectColor(this)"></div>
-  <div class="dot" onclick="selectColor(this)"></div>
-  <div class="dot" onclick="selectColor(this)"></div>
-  <div class="dot" onclick="selectColor(this)"></div>
-  <div class="dot" onclick="selectColor(this)"></div>
-  <div class="dot" onclick="selectColor(this)"></div>
-  <div class="dot" onclick="selectColor(this)"></div>
-  <div class="dot" onclick="selectColor(this)"></div>
-  <div class="dot" onclick="selectColor(this)"></div>
-  <div class="dot" onclick="selectColor(this)"></div>
-  
-  <div class="palette">
-    <div class="color" onclick="changeColor('rgb(255, 0, 0)')" style="background-color: rgb(255, 0, 0)"></div>
-    <div class="color" onclick="changeColor('rgb(255, 255, 0)')" style="background-color: rgb(255, 255, 0)"></div>
-    <div class="color" onclick="changeColor('rgb(0, 0, 255)')" style="background-color: rgb(0, 0, 255)"></div>
-    <div class="color" onclick="changeColor('rgb(0, 255, 0)')" style="background-color: rgb(0, 255, 0)"></div>
-    <div class="color" onclick="changeColor('rgb(128, 0, 128)')" style="background-color: rgb(128, 0, 128)"></div>
-    <div class="color" onclick="changeColor('rgb(255, 165, 0)')" style="background-color: rgb(255, 165, 0)"></div>
-  </div>
-  
-  <script>
-    let selectedColor = null;
-    
-    function selectColor(dot) {
-      selectedColor = dot;
-    }
-    
-    function changeColor(color) {
-      if (selectedColor) {
-        selectedColor.style.backgroundColor = color;
+  <head>
+    <style>
+      .palette {
+        float: left;
+        width: 50px;
+        height: 400px;
+        border: 1px solid black;
       }
-    }
-  </script>
-</body>
+      
+      .canvas {
+        float: left;
+        width: 400px;
+        height: 400px;
+        border: 1px solid black;
+        margin-left: 10px;
+      }
+      
+      .color-box {
+        width: 50px;
+        height: 50px;
+        float: left;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="palette">
+      <div class="color-box" style="background-color: red;" onclick="setColor('red')"></div>
+      <div class="color-box" style="background-color: blue;" onclick="setColor('blue')"></div>
+      <div class="color-box" style="background-color: green;" onclick="setColor('green')"></div>
+    </div>
+    <div class="canvas">
+      <div id="canvas" style="width: 400px; height: 400px;"></div>
+    </div>
+    
+    <script>
+      var canvas = document.getElementById("canvas");
+      var color = "black";
+      var size = 10;
+      
+      canvas.addEventListener("click", function(event) {
+        var x = event.clientX - canvas.offsetLeft;
+        var y = event.clientY - canvas.offsetTop;
+        
+        var box = document.createElement("div");
+        box.style.left = x + "px";
+        box.style.top = y + "px";
+        box.style.width = size + "px";
+        box.style.height = size + "px";
+        box.style.backgroundColor = color;
+        box.style.position = "absolute";
+        canvas.appendChild(box);
+      });
+      
+      function setColor(newColor) {
+        color = newColor;
+      }
+      
+      function setSize(newSize) {
+        size = newSize;
+      }
+    </script>
+  </body>
 </html>
