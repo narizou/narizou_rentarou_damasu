@@ -19,48 +19,76 @@
       .color-box {
         width: 50px;
         height: 50px;
-        float: left;
-        margin-bottom: 10px;
-        cursor: pointer;
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 15px;
+        text-align: center;
       }
     </style>
   </head>
   <body>
-    <div class="palette">
-      <div class="color-box" style="background-color: red;" onclick="setColor('red')"></div>
-      <div class="color-box" style="background-color: blue;" onclick="setColor('blue')"></div>
-      <div class="color-box" style="background-color: green;" onclick="setColor('green')"></div>
-    </div>
-    <div class="canvas">
-      <div id="canvas" style="width: 400px; height: 400px;"></div>
-    </div>
-    
-    <script>
-      var canvas = document.getElementById("canvas");
-      var color = "black";
-      var size = 10;
-      
-      canvas.addEventListener("click", function(event) {
-        var x = event.clientX - canvas.offsetLeft;
-        var y = event.clientY - canvas.offsetTop;
-        
-        var box = document.createElement("div");
-        box.style.left = x + "px";
-        box.style.top = y + "px";
-        box.style.width = size + "px";
-        box.style.height = size + "px";
-        box.style.backgroundColor = color;
-        box.style.position = "absolute";
-        canvas.appendChild(box);
-      });
-      
-      function setColor(newColor) {
-        color = newColor;
-      }
-      
-      function setSize(newSize) {
-        size = newSize;
-      }
-    </script>
+    <table style="width:100%">
+      <tr>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>10</td>
+        <td>11</td>
+        <td>12</td>
+        <td>13</td>
+        <td>14</td>
+        <td>15</td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>17</td>
+        <td>18</td>
+        <td>19</td>
+        <td>20</td>
+        <td>21</td>
+        <td>22</td>
+      </tr>
+      <tr>
+        <td>23</td>
+        <td>24</td>
+        <td>25</td>
+        <td>26</td>
+        <td>27</td>
+        <td>28</td>
+        <td>29</td>
+      </tr>
+    </table>
   </body>
 </html>
