@@ -1,82 +1,60 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <style>
-      table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-      }
-      th, td {
-        padding: 8px;
-        text-align: left;
-      }
-      th {
-        background-color: #f2f2f2;
-      }
-    </style>
+    <title>計算機</title>
+    <meta charset="utf-8">
   </head>
   <body>
-    <h2>週間スケジュール</h2>
-    <table style="width:75%">
-      <tr>
-        <th>     </th>
-        <th>月曜日</th>
-        <th>火曜日</th>
-        <th>水曜日</th>
-        <th>木曜日</th>
-        <th>金曜日</th>
-      </tr>
-      <tr>
-        <td>1時間目</td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td> 
-      </tr>
-      <tr>
-        <td>2時間目</td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td> 
-      </tr>
-      <tr>
-        <td>3時間目</td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td> 
-      </tr>
-      <tr>
-        <td>4時間目</td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td> 
-      </tr>
-      <tr>
-        <td>5時間目</td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td> 
-      </tr>
-      <tr>
-        <td>6時間目</td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td>
-        <td><input type="text"></td> 
-      </tr>
-    </table>
-    <br><br>
-    <h2>週間メモ</h2>
-    <textarea rows="10" cols="100"></textarea>
+    <h1>計算機</h1>
+    <form>
+      <input type="text" id="input1">
+      <br>
+      <input type="button" value="+" onclick="add()">
+      <input type="button" value="-" onclick="subtract()">
+      <input type="button" value="×" onclick="multiply()">
+      <input type="button" value="÷" onclick="divide()">
+      <br>
+      <input type="text" id="input2">
+      <br>
+      <input type="button" value="計算" onclick="calculate()">
+    </form>
+    <p id="result"></p>
+    
+    <script>
+      function add() {
+        var input1 = document.getElementById("input1").value;
+        var input2 = document.getElementById("input2").value;
+        var result = parseFloat(input1) + parseFloat(input2);
+        document.getElementById("result").innerHTML = result;
+      }
+      
+      function subtract() {
+        var input1 = document.getElementById("input1").value;
+        var input2 = document.getElementById("input2").value;
+        var result = parseFloat(input1) - parseFloat(input2);
+        document.getElementById("result").innerHTML = result;
+      }
+      
+      function multiply() {
+        var input1 = document.getElementById("input1").value;
+        var input2 = document.getElementById("input2").value;
+        var result = parseFloat(input1) * parseFloat(input2);
+        document.getElementById("result").innerHTML = result;
+      }
+      
+      function divide() {
+        var input1 = document.getElementById("input1").value;
+        var input2 = document.getElementById("input2").value;
+        var result = parseFloat(input1) / parseFloat(input2);
+        document.getElementById("result").innerHTML = result;
+      }
+      
+      function calculate() {
+        var input1 = document.getElementById("input1").value;
+        var input2 = document.getElementById("input2").value;
+        var result = eval(input1 + document.querySelector('input[type="button"]:checked').value + input2);
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
   </body>
 </html>
