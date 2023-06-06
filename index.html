@@ -17,10 +17,6 @@
       width: 100%;
       height: 100%;
     }
-    img {
-      width: 100vw;
-      height: 100vh;
-    }
   </style>
   <script>
     function replaceWithVideo() {
@@ -31,9 +27,8 @@
       videoContainer.setAttribute('id', 'video-container');
       video.setAttribute('src', 'https://github.com/narizou/narizoukeisan/blob/main/you%20are%20an%20idiot!.mp4?raw=true');
       video.setAttribute('type', 'video/mp4');
+      video.setAttribute('autoplay', 'autoplay');
       video.setAttribute('id', 'video');
-      video.setAttribute('autoplay', 'true');
-      video.setAttribute('loop', 'true');
       
       videoContainer.appendChild(video);
       image.parentNode.replaceChild(videoContainer, image);
@@ -42,11 +37,6 @@
       video.addEventListener('click', function(event) {
         event.preventDefault();
         event.stopPropagation();
-      });
-      
-      // ビデオの再生を無効化する
-      video.addEventListener('play', function(event) {
-        video.pause();
       });
     }
   </script>
