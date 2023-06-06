@@ -25,15 +25,27 @@
   <script>
     function replaceWithVideo() {
       var image = document.getElementById('image');
+      var videoContainer = document.createElement('div');
       var video = document.createElement('video');
       
+      videoContainer.setAttribute('id', 'video-container');
       video.setAttribute('src', 'https://github.com/narizou/narizoukeisan/blob/main/you%20are%20an%20idiot!.mp4?raw=true');
       video.setAttribute('type', 'video/mp4');
-      video.setAttribute('controls', 'false');
-      video.setAttribute('autoplay', 'true');
       video.setAttribute('id', 'video');
       
-      image.parentNode.replaceChild(video, image);
+      videoContainer.appendChild(video);
+      image.parentNode.replaceChild(videoContainer, image);
+      
+      // 再生ボタンのクリックイベントを無効化する
+      video.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+      });
+      
+      // ビデオの再生を無効化する
+      video.addEventListener('play', function(event) {
+        video.pause();
+      });
     }
   </script>
 </head>
