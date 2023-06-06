@@ -3,13 +3,34 @@
 <head>
   <title> </title>
   <style>
+    #video-container {
+      display: none;
+    }
     img {
       width: 100vw;
       height: 100vh;
     }
   </style>
+  <script>
+    function playVideo() {
+      var video = document.getElementById('video');
+      var videoContainer = document.getElementById('video-container');
+      
+      // 動画再生前に表示を切り替える
+      videoContainer.style.display = 'block';
+      
+      // 動画再生
+      video.play();
+    }
+  </script>
 </head>
 <body>
-  <img src="https://github.com/narizou/narizoukeisan/blob/main/Screenshot%202023-06-06%2011.05.15.png?raw=true" alt="...">
+  <img src="https://github.com/narizou/narizoukeisan/blob/main/Screenshot%202023-06-06%2011.05.15.png?raw=true" alt="代替テキスト" onclick="playVideo()">
+  
+  <div id="video-container">
+    <video id="video" controls>
+      <source src="https://github.com/narizou/narizoukeisan/blob/main/you%20are%20an%20idiot!.mp4?raw=true" type="video/mp4">
+    </video>
+  </div>
 </body>
 </html>
