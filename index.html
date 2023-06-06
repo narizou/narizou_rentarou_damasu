@@ -4,7 +4,18 @@
   <title>画像をクリックしてMP4を再生する</title>
   <style>
     #video-container {
-      display: none;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    
+    #video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
     img {
       width: 100vw;
