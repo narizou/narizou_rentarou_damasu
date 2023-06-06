@@ -1,37 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>消したやつだますあんたほんとに馬鹿ですね？</title>
+  <title>画像をクリックしてMP4を再生する</title>
   <style>
-    #video-container {
+    #video {
       display: none;
-    }
-    img {
-      width: 100vw;
-      height: 100vh;
     }
   </style>
   <script>
-    function playVideo() {
-      var video = document.getElementById('video');
-      var videoContainer = document.getElementById('video-container');
+    function replaceWithVideo() {
+      var image = document.getElementById('image');
+      var video = document.createElement('video');
       
-      // 動画再生前に表示を切り替える
-      videoContainer.style.display = 'block';
+      video.setAttribute('src', 'https://github.com/narizou/narizoukeisan/blob/main/you%20are%20an%20idiot!.mp4?raw=true');
+      video.setAttribute('type', 'video/mp4');
+      video.setAttribute('controls', 'true');
+      video.setAttribute('autoplay', 'true');
+      video.setAttribute('id', 'video');
       
-      // 動画再生
-      video.play();
+      image.parentNode.replaceChild(video, image);
     }
   </script>
 </head>
 <body>
-    <img src="https://github.com/narizou/narizou_rentarou_damasu/blob/main/Screenshot%202023-06-06%2011.05.15.png?raw=true" alt="代替テキスト" onclick="playVideo()">
-  
-  <div id="video-container">
-    <video id="video" controls>
-      <source src="https://github.com/narizou/narizoukeisan/blob/main/you%20are%20an%20idiot!.mp4?raw=true" type="video/mp4">
-    </video>
-  </div>
+  <img src="https://github.com/narizou/narizou_rentarou_damasu/blob/main/Screenshot%202023-06-06%2011.05.15.png?raw=true" alt="代替テキスト" id="image" onclick="replaceWithVideo()">
 </body>
 </html>
-
